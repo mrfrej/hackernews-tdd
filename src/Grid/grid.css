@@ -1,0 +1,146 @@
+button {
+    background: none;
+    border: 0;
+    text-align: left;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+button:focus {
+    outline:0;
+}
+
+button:hover {
+    outline:0;
+}
+
+button:before {
+    cursor: pointer;
+    position: absolute;
+    content: '';
+    /*outline:1px solid red;*/
+    z-index: 40;
+    height: 90%;
+    width: 90%;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    color: #616161;
+    grid-auto-flow: row;
+    margin: 70px;
+
+}
+
+
+/*
+
+    Make it responsive
+    I define 3 sizes.
+    Mobile, Pad and Desktop
+
+*/
+@media screen and (max-width: 679px) {
+
+    .wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+        grid-template-rows: repeat(40, 150px);
+        margin: 0px;
+
+    }
+
+}
+@media screen and (min-width: 680px) and (max-width: 1023px) {
+
+    .wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+        grid-template-rows: repeat(25, 150px);
+        margin: 40px;
+
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+    .wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(11%, 1fr));
+        grid-template-rows: repeat(12, 150px);
+        margin: 70px;
+
+    }
+
+}
+
+
+.box {
+    color: #fff;
+    padding: 0px;
+}
+
+.not-selected {
+    grid-column: auto / span 1;
+    background-color: white;
+    font-size: 11px;
+    margin-top: 11px !important;
+}
+
+.selected {
+    grid-column: auto / span 2;
+    grid-row: auto / span 2;
+    background-color: white;
+    font-size: 11px;
+    margin-top: 11px !important;
+}
+
+.card {
+    padding: 0;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 rgba(229, 229, 230, 0.93), 0 0 0 1px rgba(235, 235, 236, 0.29);
+    padding: 1em 1em;
+}
+
+.card:hover {
+    transform: translateY(-3px)
+}
+
+.card-header {
+    display: block;
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    color: rgba(0, 0, 0, .85);
+    font-size: 11px !important;
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 11px !important;
+    overflow: hidden;
+    max-height:40px
+}
+
+.author {
+    font-size: 1em;
+    color: rgba(0, 0, 0, .4);
+    margin-bottom: 10px;
+}
+
+.text {
+    color: rgba(0, 0, 0, .68);
+    font-size: 11px;
+    line-height: 12px;
+    overflow: hidden;
+    height: 36px;
+}
+
+.text-selected {
+    color: rgba(0, 0, 0, .68);
+    height: 70%;
+    font-size: 11px;
+    line-height: 12px;
+    overflow: hidden;
+}
+
+.points {
+    marginBottom: 5px;
+}
