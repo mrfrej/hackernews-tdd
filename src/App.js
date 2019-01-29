@@ -67,9 +67,7 @@ class App extends Component {
         return (
             <div>
                 <div className="container">
-                    <div className="wrapper">
                         <Grid stories={stories} selectStory={this.selectStory}/>
-                    </div>
                 </div>
             </div>
         );

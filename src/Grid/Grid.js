@@ -6,7 +6,6 @@ class Grid extends Component {
     constructor(props) {
         super(props);
         this.onClick = this.onClick.bind(this);
-
     }
 
     onClick(event) {
@@ -15,32 +14,24 @@ class Grid extends Component {
         this.props.selectStory(id);
     }
 
-    render() {
+    renderCards(stories) {
+        return stories.map((story, index) => {
+                return (
+                    <button key={story.id} id={story.id} className={`card ${story.selected ? 'selected':'not-selected'}`} onClick={this.onClick} value={story.id}>
+                        <div className="points">&#9650; {story.score} points</div>
+                        <div className="card-header">{story.title}</div>
+                        <div className='author'>{story.by}</div>
+                        <div className={`${story.selected ? 'text-selected':'text'}`}>{story.text}</div>
+                    </button>)
+            })
+    }
 
+    render() {
         const stories = this.props.stories;
 
-        return stories.map((story, index) => {
-            if (story.selected) {
-                return (
-                    <button key={story.id} id={story.id} className="card selected" onClick={this.onClick} value={story.id}>
-                        <div className="points">&#9650; {story.score} points</div>
-                        <div className="card-header">{story.title}</div>
-                        <div className='author'>{story.by}</div>
-                        <div className="text-selected">{story.text}</div>
-                    </button>)
-            }
-            else {
-                return (
-                    <button key={story.id} id={story.id} className="card not-selected" onClick={this.onClick}
-                       value={story.id}>
-                        <div className="points">&#9650; {story.score} points</div>
-                        <div className="card-header">{story.title}</div>
-                        <div className='author'>{story.by}</div>
-                        <div className='text'>{story.text}</div>
-                    </button>
-                )
-            }
-        })
+        return(<div className="wrapper">
+            {this.renderCards(stories)}
+        </div>)
     }
 }
 
